@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+        font-size: 19px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        margin: 20px auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        gap: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .question-box {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+      }
+      .question-box h3 {
+        margin: 0 0 10px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .question-reply {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+      }
+      .question-reply p {
+        margin: 0;
+      }
+      .container button {
+        padding: 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        border: none;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+      .icon {
+        float: right;
+        cursor: pointer;
+      }
+      .container button:hover {
+        background-color: #0056b3;
+      }
+      .container .themessage {
+        padding: 20px;
+        margin: auto;
+        background-color: #eee;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="elzero-app">
+      <div class="question-box" v-for="question in questions ">
+        <h3>{{question.title}}</h3>
+        <span class="icon" @click="question.open=!question.open">@</span>
+        <div class="question-reply">
+          <p v-if="question.open">{{question.reply}}</p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+      var questions = {
+        "question one": {
+          open: false,
+          title: "one: What is the capital of France?",
+          reply: "Paris",
+        },
+        "question two": {
+          open: false,
+          title: "two: What is the largest planet in our solar system?",
+          reply: "Jupiter",
+        },
+        "question three": {
+          open: false,
+          title: "three: Who wrote 'To Kill a Mockingbird'?",
+          reply: "Harper Lee",
+        },
+        "question four": {
+          open: false,
+          title: "four: What is the chemical symbol for water?",
+          reply: "H2O",
+        },
+        "question five": {
+          open: false,
+          title: "five: What is the tallest mountain in the world?",
+          reply: "Mount Everest",
+        },
+        "question six": {
+          open: false,
+          title: "six: Who painted the Mona Lisa?",
+          reply: "Leonardo da Vinci",
+        },
+        "question seven": {
+          open: false,
+          title: "seven: What is the smallest country in the world?",
+          reply: "Vatican City",
+        },
+        "question eight": {
+          open: false,
+          title: "eight: What is the speed of light?",
+          reply: "299,792,458 meters per second",
+        },
+        "question nine": {
+          open: false,
+          title: "nine: Who is known as the 'Father of Computers'?",
+          reply: "Charles Babbage",
+        },
+        "question ten": {
+          open: false,
+          title: "ten: What is the hardest natural substance on Earth?",
+          reply: "Diamond",
+        },
+      };
+      var app = new Vue({
+        el: "#elzero-app",
+        data: {
+          questions: questions,
+        },
+      });
+    </script>
+  </body>
+</html>
